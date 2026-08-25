@@ -1,18 +1,11 @@
-# Music Release Kit V1
+# Music Visualizer V1
 
-Sube una canción y una portada, ajusta el recorte, previsualiza un visualizer y exporta el video directamente desde el navegador.
+V1 enfocada en utilidad: audio, recorte, portada, zoom/movimiento, formatos 16:9/9:16/1:1, visualizador y exportación local a WebM.
 
-## GitHub Pages
+## Archivos
+- index.html
+- app.js
+- style.css
 
-1. Crea un repositorio público.
-2. Sube `index.html`, `style.css`, `app.js` y `README.md` a la raíz.
-3. Ve a **Settings → Pages**.
-4. En Source elige **Deploy from a branch**.
-5. Elige `main` y `/ (root)`.
-6. Guarda y espera a que aparezca **Visit site**.
-
-## Nota sobre exportación
-
-La exportación usa `Canvas.captureStream()` y `MediaRecorder`. El formato final depende del navegador. Chrome/Edge suelen ofrecer la mejor compatibilidad. Safari puede variar según versión y dispositivo.
-
-No se usa servidor: audio e imágenes se procesan localmente.
+## Objetivo de exportación
+Chrome de escritorio. La exportación usa Canvas + MediaRecorder y genera WebM.
