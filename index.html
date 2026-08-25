@@ -1,0 +1,23 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#09090b"><title>Music Release Kit</title><link rel="stylesheet" href="style.css"></head><body>
+<header><b>MUSIC RELEASE KIT <small>V1</small></b><span id="status">Listo</span></header>
+<main>
+<section class="screen active" data-screen="home"><p class="eyebrow">LOCAL MUSIC VISUALIZER</p><h1>Tu canción.<br><em>Tu visual.</em></h1><p>Sube una canción y una imagen, ajústalas y crea un visualizer directamente en tu navegador.</p><button class="primary" data-go="audio">Crear proyecto →</button><p class="note">Tus archivos se procesan localmente en este dispositivo.</p></section>
+
+<section class="screen" data-screen="audio"><p class="eyebrow">01 / AUDIO</p><h2>Elige tu canción</h2><p>MP3, WAV o M4A. Puedes usar el tema completo o seleccionar un fragmento.</p>
+<label class="drop">♪<strong>Selecciona tu audio</strong><span>MP3 · WAV · M4A</span><input id="audioInput" type="file" accept=".mp3,.wav,.m4a,audio/*"></label>
+<div id="audioPanel" class="panel hidden"><div id="audioInfo"></div><audio id="audioPlayer" controls></audio><canvas id="waveform" height="100"></canvas><div class="ranges"><label>Inicio<input id="startRange" type="range" min="0" value="0" step=".01"></label><label>Final<input id="endRange" type="range" min="1" value="1" step=".01"></label></div><div><span id="startLabel">0:00</span> — <span id="endLabel">0:00</span></div></div>
+<nav><button class="ghost" data-go="home">← Atrás</button><button id="toImage" class="primary" disabled>Continuar →</button></nav></section>
+
+<section class="screen" data-screen="image"><p class="eyebrow">02 / IMAGEN</p><h2>Encuadra tu portada</h2><p>El marco mantiene la proporción. Puedes mover y ampliar la imagen.</p>
+<label class="filebutton">Subir imagen<input id="imageInput" type="file" accept=".jpg,.jpeg,.png,.webp,image/*"></label>
+<div id="frame" class="frame"><canvas id="imageCanvas"></canvas><span id="imageHint">Sube una portada</span></div>
+<div class="panel"><label>Zoom<input id="zoomRange" type="range" min="1" max="3" step=".01" value="1" disabled></label><button id="centerImage" class="ghost" disabled>Centrar</button></div>
+<nav><button class="ghost" data-go="audio">← Atrás</button><button id="toViz" class="primary" disabled>Continuar →</button></nav></section>
+
+<section class="screen" data-screen="visualizer"><p class="eyebrow">03 / VISUALIZER</p><h2>Hazlo moverse</h2><p>Previsualiza el resultado en tiempo real.</p>
+<div class="viz"><canvas id="vizCanvas"></canvas></div>
+<div class="panel"><b>Formato</b><div class="buttons"><button class="format active" data-format="16:9">YouTube<br><small>1920×1080</small></button><button class="format" data-format="9:16">Shorts / TikTok<br><small>1080×1920</small></button><button class="format" data-format="1:1">Instagram<br><small>1080×1080</small></button></div><br><b>Estilo</b><div class="buttons"><button class="style active" data-style="pulse">Pulse</button><button class="style" data-style="wave">Wave</button><button class="style" data-style="neon">Neon</button></div><br><button id="playBtn" class="primary">▶ Reproducir</button><span id="time">0:00 / 0:00</span></div>
+<nav><button class="ghost" data-go="image">← Atrás</button><button class="primary" data-go="export">Continuar →</button></nav></section>
+
+<section class="screen" data-screen="export"><p class="eyebrow">04 / EXPORTAR</p><h2>Tu lanzamiento está listo.</h2><p>El video se genera localmente cuando el navegador lo permite.</p><div class="viz"><canvas id="exportCanvas"></canvas></div><div id="compat" class="notice"></div><button id="exportBtn" class="primary full">Exportar video</button><div id="progress" class="progress hidden"></div><nav><button class="ghost" data-go="visualizer">← Editar</button><button class="ghost" onclick="location.reload()">Nuevo proyecto</button></nav></section>
+</main><footer>Music Release Kit · V1</footer><script src="app.js"></script></body></html>
